@@ -56,8 +56,8 @@ services:
       - ./minio/.minio/data:/export
       - ./minio/.minio/config:/root/.minio
     environment:
-      - "MINIO_ACCESS_KEY=AKIAIG4ILCORMAJCS37A"
-      - "MINIO_SECRET_KEY=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"
+      - "MINIO_ROOT_USER=AKIAIG4ILCORMAJCS37A"
+      - "MINIO_ROOT_PASSWORD=u8cQx07PvHJS8/zvr7q3IFY+w2toIYIJQ7vm1ETH"
     command: server /export
 
   createbuckets:
