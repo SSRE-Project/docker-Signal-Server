@@ -22,7 +22,7 @@ RUN apt-get install --reinstall ca-certificates-java
 
 # --> Install maven 3.5 <--
 RUN apt-get install maven -y
-RUN cd /usr/local && wget http://www-eu.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+RUN cd /usr/local && wget https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.5.2/apache-maven-3.5.2-bin.tar.gz
 RUN cd /usr/local && tar xzf apache-maven-3.5.2-bin.tar.gz \ 
     && ln -s apache-maven-3.5.2 apache-maven
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /etc/profile.d/apache-maven.sh
