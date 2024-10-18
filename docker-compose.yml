@@ -49,11 +49,11 @@ services:
       - "8081:8081"
 
   minio:
-    image: minio/minio
+    image: quay.io/minio/minio
     ports:
       - "9000:9000"
     volumes:
-      - ./minio/.minio/data:/export
+      # - ./minio/.minio/data:/export
       - ./minio/.minio/config:/root/.minio
     environment:
       - "MINIO_ROOT_USER=AKIAIG4ILCORMAJCS37A"
