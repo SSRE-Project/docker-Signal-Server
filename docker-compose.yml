@@ -60,14 +60,20 @@ services:
     environment:
       MINIO_CONFIG_ENV: /etc/config.env
     command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 1s
+      timeout: 1s
+      retries: 3
 
   createbuckets:
     image: minio/mc
     depends_on:
-      - minio
+      minio:
+        condition: service_healthy
     entrypoint: >
       /bin/sh -c "
-      /usr/bin/mc config host add myminio https://minio:9000 AKIAIG4ILCORMAJCS37A u8cQx07PvHJS8/zvr7q3IFY+w2toIYIJQ7vm1ETH;
+      /usr/bin/mc config host add myminio http://minio:9000 minioadmin minioadmin;
       /usr/bin/mc rm -r --force myminio/signal-attachments-buu;
       /usr/bin/mc rm -r --force myminio/signal-profiles-buu;
       /usr/bin/mc mb myminio/signal-attachments-buu;
