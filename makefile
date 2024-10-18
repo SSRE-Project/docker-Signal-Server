@@ -1,7 +1,7 @@
-.PHONY: rebuild
+.PHONY: reload
 .PHONY: rebuild
 .PHONY: podman-reload
-.PHONY: podman-reload
+.PHONY: podman-rebuild
 
 reload:
 	docker compose down
@@ -18,3 +18,7 @@ podman-reload:
 podman-rebuild:
 	podman compose down
 	podman compose up --build -d
+
+resolve-permission:
+	sudo chown -R $(whoami):$(whoami) ./postgresql
+	sudo chmod -R 775 ./postgresql
