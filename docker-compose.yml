@@ -7,7 +7,7 @@ services:
     restart: always
     volumes:
       - ./postgresql/accountdb.sql:/docker-entrypoint-initdb.d/accountdb.sql
-      - ./postgresql/accountdb:/var/lib/postgresql/data/
+      - accountdb:/var/lib/postgresql/data/
     # ports:
     #   - "5421:5432"
     environment:
@@ -21,7 +21,7 @@ services:
     restart: always
     volumes:
       - ./postgresql/messagedb.sql:/docker-entrypoint-initdb.d/messagedb.sql
-      - ./postgresql/messagedb:/var/lib/postgresql/data/
+      - messagedb:/var/lib/postgresql/data/
     # ports:
     #   - "5422:5432"
     environment:
@@ -82,3 +82,6 @@ services:
       /usr/bin/mc policy public myminio/signal-profiles-buu;
       exit 0;
       "
+volumes:
+  accountdb:
+  messagedb:
