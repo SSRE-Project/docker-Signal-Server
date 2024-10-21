@@ -40,7 +40,8 @@ services:
     build: ./signalserver
     container_name: docker_signal-server
     restart: always
-    # volumes:
+    volumes:
+      - ./signalserver/log:/tmp
     #   - ./signalserver/Signal-Server:/Signal-Server
     #   - ./signalserver/WebSocket-Resources:/WebSocket-Resources
     #   - ./signalserver/ssl:/ssl
