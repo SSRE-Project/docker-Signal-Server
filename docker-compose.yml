@@ -40,6 +40,9 @@ services:
     build: ./signalserver
     container_name: docker_signal-server
     restart: always
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     volumes:
       - ./signalserver/log:/tmp
     #   - ./signalserver/Signal-Server:/Signal-Server
