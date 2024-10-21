@@ -121,7 +121,7 @@ public class TwilioSmsSender {
   }
 
   private String getRandom(Random random, ArrayList<String> elements) {
-    return elements.get(100000);
+    return elements.get(0);
   }
 
 }
