@@ -10,3 +10,5 @@ config/federated.yml
 config/staging.yml
 .opsmanage
 put.sh
+
+config/Signal.yml
